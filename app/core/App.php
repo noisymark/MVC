@@ -3,9 +3,9 @@
 class App{
     public static function start(){
         $ruta=Request::getRuta();
-        Log::info($ruta);
+        //Log::info($ruta);
         $dijelovi=explode('/',substr($ruta,1));
-        Log::info($dijelovi);
+        //Log::info($dijelovi);
 
         $controller='';
         $x='';
@@ -16,7 +16,7 @@ class App{
             $controller = $x . 'Controller';
         }
 
-        Log::info($controller);
+        //Log::info($controller);
 
         $metoda='';
 
@@ -26,7 +26,7 @@ class App{
             $metoda = $dijelovi[1];
         }
 
-        Log::info($metoda);
+        //Log::info($metoda);
 
         if(class_exists($controller) && method_exists($controller,$metoda)){
             $instanca = new $controller();
