@@ -26,4 +26,4 @@ spl_autoload_register(function($klasa){
   }
 });
 
-new Osoba();
+App::start();
