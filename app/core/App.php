@@ -1,7 +1,8 @@
 <?php
 
 class App{
-    public static function start(){
+    public static function start()
+    {
         $ruta=Request::getRuta();
         //Log::info($ruta);
         $dijelovi=explode('/',substr($ruta,1));
@@ -9,9 +10,11 @@ class App{
 
         $controller='';
         $x='';
-        if(!isset($dijelovi[0]) || $dijelovi[0]===''){
+        if(!isset($dijelovi[0]) || $dijelovi[0]==='')
+        {
             $controller='IndexController';
-        } else{
+        } else
+        {
             $x=ucfirst($dijelovi[0]);
             $controller = $x . 'Controller';
         }
@@ -20,18 +23,22 @@ class App{
 
         $metoda='';
 
-        if(!isset($dijelovi[1]) || $dijelovi[1]===''){
+        if(!isset($dijelovi[1]) || $dijelovi[1]==='')
+        {
             $metoda='index';
-        } else{
+        } else
+        {
             $metoda = $dijelovi[1];
         }
 
         //Log::info($metoda);
 
-        if(class_exists($controller) && method_exists($controller,$metoda)){
+        if(class_exists($controller) && method_exists($controller,$metoda))
+        {
             $instanca = new $controller();
             $instanca->$metoda();
-        } else{
+        } else
+        {
             echo ' 404 - NOT FOUND ' . '<br>';
             echo ' CONTROLLER ' . $controller . ' AND METHOD ' . $metoda . ' DOES NOT EXIST ! ' . '<br>';
         }
