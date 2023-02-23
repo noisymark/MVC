@@ -1,20 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-
-    <h1>Naslov u predlošku - zajednički dio stranice</h1>
-
-    <?php echo $sadrzaj; ?>
-
-    <ol>
-        <li>Stavka</li>
-    </ol>
-
-</body>
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+  <?php include_once 'includes/head.phtml'; ?>
+  </head>
+  <body>
+  <?php include_once 'includes/izbornik.phtml'; ?>
+  <div class="grid-container">
+      <div class="grid-x grid-padding-x">
+        <div class="large-12 cell" id="program">
+          <?=$sadrzaj?>
+        </div>
+        <div class="large-12 cell">
+        <?php include_once 'includes/podnozje.phtml'; ?>
+        </div>
+      </div>
+    </div>
+    <?php include_once 'includes/skripte.phtml'; ?>
+  </body>
 </html>

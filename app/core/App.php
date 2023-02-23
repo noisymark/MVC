@@ -43,4 +43,21 @@ class App{
             echo ' CONTROLLER ' . $controller . ' AND METHOD ' . $metoda . ' DOES NOT EXIST ! ' . '<br>';
         }
     }
+
+    public static function config($kljuc)
+    {
+        $configFile=BP_APP . 'konfiguracija.php';
+
+        if(!file_exists($configFile))
+        {
+            return 'Konfiguracijska datoteka ne postoji!';
+        }
+        $config = require $configFile;
+
+        if(!isset($config[$kljuc]))
+        {
+            return 'Ključ ' . $kljuc . ' nije postavljen u konfiguraciji!';
+        }
+        return $config[$kljuc];
+    }
 }

@@ -26,4 +26,10 @@ class View
         include_once BP_APP . 'view' . DIRECTORY_SEPARATOR . $this->predlozak  . '.phtml';
     }
 
+    public function api($parametri)
+    {
+        header('Content-type: application/json; charset=utf-8');
+        echo json_encode($parametri);
+    }
+
 }

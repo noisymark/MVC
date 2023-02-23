@@ -1,15 +1,30 @@
 <?php
 
-class IndexController{
+class IndexController extends Controller{
     public function index()
     {
-        $view = new View();
-        $view->render('inder');
+        $this->view->render('index',[
+            'iznos'=>12,
+            'podaci'=>[
+                2,4,6,3,2,5,7,3
+            ]
+            ]);
     }
 
-    public function primjer1()
+    public function kontakt()
     {
-        $view = new View();
-        $view->render('primjer1');
+        $this->view->render('kontakt');
+    }
+
+    public function api(){
+        $this->view->api([
+            'podaci'=>[
+                'id'=>2,
+                'osoba'=>[
+                    'ime'=>'Pero',
+                    'prezime'=>'Perić'
+                ]
+            ]
+        ]);
     }
 }
